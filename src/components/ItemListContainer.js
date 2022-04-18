@@ -1,9 +1,13 @@
 
-const ItemListContainer = () => {
+const ItemListContainer = ({children,apellido}) => {
+
     return (
       <>
-  
+            <h2>¡Hola {apellido}!</h2>
       <h2 className="main">Productos</h2> 
+
+
+
   
   <div className="card main">
       

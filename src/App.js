@@ -10,9 +10,9 @@ const App = () => {
     return (
         <>
             <Header/>
-            <Main nombre="Francisco">
+            <Main>
             </Main>
-            <ItemListContainer/>
+            <ItemListContainer apellido="Ugarte"/>
             <Footer/>
 
 
