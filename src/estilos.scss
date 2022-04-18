@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* Reseteo de padding y margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html , body , #root {
+    height: 100vh;
+    
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+#root > main {
+    flex-grow: 1;
+}
+
+#root > main , #root > header , #root > footer {
+    padding: 1rem;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.nav {
+
+    background-color: rgb(34, 86, 199);
+    
+}
+
+.header {
+    background-color: rgb(15, 52, 131);
+    text-align: center;
+
+}
+
+.main {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+}
+
+.header__titulo {
+    color: whitesmoke;
+}
+
+.footer {
+    background-color: rgb(37, 37, 37);
+    color: whitesmoke
+}
+
+.carrito {
+    color: whitesmoke
+}
+
+.botonLogin {
+    color: rgb(15, 52, 131);
+}
+
+.botones {
+    margin: 1rem;
+    
+}
