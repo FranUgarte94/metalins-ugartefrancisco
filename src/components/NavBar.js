@@ -2,8 +2,8 @@ import CartWidget from './CartWidget';
 
 const NavBar = (props) => {
 
-  console.log(props.nombre);
-  console.log(props.footer);
+  //console.log(props.nombre);
+  //console.log(props.footer);
 
   if(props.footer){
     return (

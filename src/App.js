@@ -10,7 +10,8 @@ const App = () => {
     return (
         <>
             <Header/>
-            <Main/>
+            <Main nombre="Francisco">
+            </Main>
             <ItemListContainer/>
             <Footer/>
 

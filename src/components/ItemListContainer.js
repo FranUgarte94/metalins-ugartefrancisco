@@ -3,7 +3,6 @@ const ItemListContainer = () => {
     return (
       <>
   
-      <h1>¡Hola Francisco!</h1>
       <h2 className="main">Productos</h2> 
   
   <div className="card main">
