@@ -1,67 +1,120 @@
 import CartWidget from './CartWidget';
 
-const NavBar = () => {
-  return (
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
+const NavBar = (props) => {
 
+  console.log(props.nombre);
+  console.log(props.footer);
 
+  if(props.footer){
+    return (
 
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Metal-Ins</a>
-
-    <div className="dropdown">
-  <button className="btn btn-secondary dropdown-toggle botones" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Inicio
-  </button>
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a className="dropdown-item" href="#">Loguearte</a></li>
-  </ul>
-</div>
-
-<div className="dropdown">
-  <button className="btn btn-secondary dropdown-toggle botones" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Productos
-  </button>
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a className="dropdown-item" href="#">Chapas</a></li>
-    <li><a className="dropdown-item" href="#">Caños</a></li>
-    <li><a className="dropdown-item" href="#">Perfiles</a></li>
-  </ul>
-</div>
-
-<div className="dropdown">
-  <button className="btn btn-secondary dropdown-toggle botones" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Sobre Nosotros
-  </button>
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Empresa</a></li>
-    <li><a class="dropdown-item" href="#">Historia</a></li>
-    <li><a class="dropdown-item" href="#">Contacto</a></li>
-  </ul>
-</div>
-
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li className="nav-item dropdown">
 
-      <form className="d-flex">
+          <a className="nav-link dropdown-toggle btn-primary letraBlanca" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Productos
+          </a>
 
-
-      <button type="button" className="btn btn-primary botones">
-        <li class="nav-item d-flex align-items-center">
-          <CartWidget/> 
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a className="dropdown-item" href="#">Chapas</a></li>
+            <li><a className="dropdown-item" href="#">Caños</a></li>
+            <li><a className="dropdown-item" href="#">Perfiles</a></li>
+          </ul>
+          
         </li>
 
-      </button>
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Sobre Nosotros</a>
+        </li>
 
-        
+        <li className="nav-item">
+          <a className="nav-link disabled">Otros</a>
+        </li>
 
-        
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">
+            <CartWidget/>
+          </a>
+        </li>
 
-        <button className="btn btn-outline-success botonLogin botones" type="submit">Login</button>
-      </form>
+
+
+      </ul>
+    </div>
+
+    <div className='d-flex'>
+
+      <button className="btn btn-outline-success" type="submit">Login</button>
     </div>
   </div>
 </nav>
+    )
+  }else{
+
+  return (
+
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <div className="container-fluid">
+  <a className="navbar-brand" href="#">{props.nombre}</a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li className="nav-item dropdown">
+
+          <a className="nav-link dropdown-toggle btn-primary letraBlanca" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Productos
+          </a>
+
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a className="dropdown-item" href="#">Chapas</a></li>
+            <li><a className="dropdown-item" href="#">Caños</a></li>
+            <li><a className="dropdown-item" href="#">Perfiles</a></li>
+          </ul>
+          
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">Sobre Nosotros</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link disabled">Otros</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#">
+            <CartWidget/>
+          </a>
+        </li>
+
+
+
+      </ul>
+    </div>
+
+    <div className='d-flex'>
+
+      <button className="btn btn-outline-success" type="submit">Login</button>
+    </div>
+  </div>
+</nav>
+
   )
+}
 }
 
 export default NavBar
