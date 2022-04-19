@@ -1,0 +1,33 @@
+HOOK : funciones que extienden la funcionalidad del mismo componente
+
+1 - Se ejecutan y siempre adentro de un componente
+2 - No pueden estar en ningun flujo (existe, o no existe)
+
+
+PARA LIMITAR EL BOTON DE AGREGAR:
+si el valor actual es menor a 8
+entonces que esto pase
+
+if( contador != 5){ contador+1}
+
+disable true
+
+
+
+
+
+
+CICLO DE VIDA :
+
+mount (montado, por primera vez, carga estados iniciales)
+
+update (algo paso y se redibuja)
+    - El estado cambia
+    - Su padre se actualizo
+    - Si los props cambian
+
+unmount
+
+
+
+
