@@ -1,5 +1,8 @@
+import ItemCount from "./ItemCount"
 
 const ItemListContainer = ({children,apellido}) => {
+
+  const onAdd = () => {}
 
     return (
       <>
@@ -14,6 +17,7 @@ const ItemListContainer = ({children,apellido}) => {
         <div className="card-body">
           <h5 className="card-title">Chapas</h5>
           <p className="card-text">Todo tipo de chapas, en variedad de espesores y terminaciones</p>
+          <ItemCount stock={10} init={1} onAdd={onAdd}/>
           
       </div>
   </div>

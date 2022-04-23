@@ -1,3 +1,5 @@
+/*
+
 // btn.addEventListener("click", () => {})
 import { useState , useEffect } from "react"
 
@@ -28,7 +30,15 @@ const Presentacional = (props) => {
     //const p = document.querySelector('p')
     //p.innerText = contador
 
+    
     setContador(contador + 1)
+  }
+
+  const stockProductos = 5
+
+  const restarContador = () => {
+
+    setContador(contador - 1)
   }
 
   const toggleDark = () => {
@@ -42,10 +52,13 @@ const Presentacional = (props) => {
     <div>
       <p>Contador Actual : {contador}</p>
       <p>Modo dark : {dark}</p>
-      <button onClick={aumentarContador}>click</button>
-      <button onClick={toggleDark}>toogle dark</button>
+      <button onClick={aumentarContador}>Agregar</button>
+      <button onClick={restarContador}>Quitar</button>
     </div>
   )
 }
+//<button onClick={toggleDark}>toogle dark</button>
 
 export default Presentacional
+
+*/
