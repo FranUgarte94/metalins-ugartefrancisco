@@ -32,19 +32,20 @@ const cerrarConfirmado = () => {
 if(!confirmado) {
   return (
     <div>
-        <p>Unidades a comprar : {contador}</p>
-        <button onClick={sumar} className="material-icons">add</button>
-        <button onClick={confirmar}>Confirmar</button>
-        <button onClick={restar} className="material-icons">remove</button>
+        <p className="cantidad">Unidades a comprar : {contador}</p>
+        <button onClick={sumar} className="material-icons botonSuma">add</button>
+        <button onClick={confirmar} className="botonSuma">Confirmar</button>
+        <button onClick={restar} className="material-icons botonSuma">remove</button>
+
     </div>
   )
 } else {
   return (
     <div>
-        <p>Unidades a comprar : {contador}</p>
-        <button onClick={sumar} className="material-icons">add</button>
-        <button onClick={confirmar}>Confirmar</button>
-        <button onClick={restar} className="material-icons">remove</button>
+        <p className="cantidad">Unidades a comprar : {contador}</p>
+        <button onClick={sumar} className="material-icons botonSuma">add</button>
+        <button onClick={confirmar} className="botonSuma">Confirmar</button>
+        <button onClick={restar} className="material-icons botonSuma">remove</button>
         <h6 className="modalcss">Se confirmaron {contador} unidades!
         <button onClick={cerrarConfirmado}>Cerrar</button></h6>
     </div>
