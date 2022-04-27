@@ -1,11 +1,11 @@
 import CartWidget from './CartWidget';
 
-const NavBar = (props) => {
+const NavBar = (footer,nombre) => {
 
   //console.log(props.nombre);
   //console.log(props.footer);
 
-  if(props.footer){
+  if(footer){
     return (
 
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -64,7 +64,7 @@ const NavBar = (props) => {
 
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-  <a className="navbar-brand" href="#">{props.nombre}</a>
+  <a className="navbar-brand" href="#">{nombre}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

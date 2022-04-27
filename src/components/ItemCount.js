@@ -5,6 +5,10 @@ const ItemCount = ({init,stock,onAdd}) => {
 const [contador,setContador] = useState(init)
 const [confirmado,setConfirmado] = useState(false)
 
+//useEffect(()=>{
+//  console.log("Pido el detalle de un Producto")
+//},[confirmado])
+
 const sumar = () => {
 
     if(contador < stock) {

@@ -31,3 +31,88 @@ unmount
 
 
 
+const arr = [1,2,3]
+
+arr.forEach((elemento,indice)=>{
+
+})
+
+const r = arr.map((elemento,indice)=>{
+    return ;
+})
+
+
+
+
+Promise 
+
+const promesa = ? 
+const promesa = fetch()
+
+const promesa = new Promise((res)=>{
+    res(?)
+})
+
+promesa
+    .then()
+
+promesa
+    .catch()
+
+promesa
+    .then()
+    .catch()
+
+
+promesa
+    .then((contenido)=>{
+        console.log("Salio bien")
+    })
+    .catch((error)=>{
+        console.log("Salio mal")
+    })
+
+
+
+
+
+
+
+
+
+
+HTTP
+
+XHR - FETCH
+
+CLIENTE / REQUEST
+
+URL/IP : la direccion del servidor/recurso
+METODO/VERBO : get - post - put - patch - delete 
+- head - options 
+BODY : la data que queres enviar (si aplica)
+HEADERS : informacion de configuracion / metadata
+VERSION : 1.1
+
+
+SERVIDOR / RESPONSE
+
+
+CODIGO : 1xx (informativos) - 2xx (respuestas correctas) 
+        - 3xx (Redirecciones) - 4xx (Error del cliente) 
+        - 5xx (Error del servidor)
+MENSAJE : 
+BODY : la data que queres enviar (si aplica)
+HEADERS : informacion de configuracion / metadata
+    server : 
+    content-type : application/json text/plain image/jpg
+VERSION : 1.1
+
+
+fetch("http://google.com")
+
+API WEB
+API REST :
+
+    http://mercagopago.com/api/users - GET
+    http://mercagopago.com/api/ventas - POST
