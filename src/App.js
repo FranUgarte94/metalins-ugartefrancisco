@@ -2,8 +2,25 @@ import Header from "./components/Header"
 import Footer from "./components/Footer.js"
 import Main from "./components/Main"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import { BrowserRouter } from "react-router-dom";
+
+
+const App = () => {
+    return (
+        <>
+            <BrowserRouter>
+                <Header/>
+                <Main/>
+                <Footer/>
+            </BrowserRouter>
+        </>
+    )
+}
+
+export default App
+
+
 
 /*
 const pedido = fetch("https://fakestoreapi.com/products")
@@ -28,17 +45,3 @@ pedido
     })
 
 */
-const App = () => {
-    return (
-        <>
-            <Header/>
-            <Main>
-            </Main>
-            <Footer/>
-
-
-        </>
-    )
-}
-
-export default App

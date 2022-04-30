@@ -116,3 +116,10 @@ API REST :
 
     http://mercagopago.com/api/users - GET
     http://mercagopago.com/api/ventas - POST
+
+
+
+
+
+
+    SPA : SINGLE PAGE APLICATION

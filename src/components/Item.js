@@ -1,6 +1,17 @@
 import ItemCount from "./ItemCount"
+import { useState , useEffect } from "react"
 
 const Item = ({producto}) => {
+
+  const [detalles,setDetalles] = useState(false)
+
+  const detallesPrductos = () => {
+
+    console.log(producto.id)
+
+    setDetalles(true)
+}
+
   return (
     <article className="card">
         <h3>{producto.nombre}</h3>
@@ -10,7 +21,7 @@ const Item = ({producto}) => {
         <p>Categorias : {producto.categorias.map(categoria=>{
           return <span>{categoria}</span>
         })} </p>
-        <button>Detalles</button>
+        <button key={producto.id} onClick={detallesPrductos} className="botonSuma">Detalles</button>
         <ItemCount stock={producto.stock} init={1}/>
 
     </article>

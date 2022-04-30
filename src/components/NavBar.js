@@ -1,4 +1,5 @@
 import CartWidget from './CartWidget';
+import { Link , NavLink } from 'react-router-dom';
 
 const NavBar = (footer,nombre) => {
 
@@ -20,14 +21,14 @@ const NavBar = (footer,nombre) => {
         </li>
         <li className="nav-item dropdown">
 
-          <a className="nav-link dropdown-toggle btn-primary letraBlanca" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link to="/Productos" className="nav-link dropdown-toggle btn-primary letraBlanca" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Productos
-          </a>
+          </Link>
 
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a className="dropdown-item" href="#">Chapas</a></li>
-            <li><a className="dropdown-item" href="#">Caños</a></li>
-            <li><a className="dropdown-item" href="#">Perfiles</a></li>
+            <li><NavLink to="/Chapas" className="dropdown-item">Chapas</NavLink></li>
+            <li><NavLink to="/Caños" className="dropdown-item">Caños</NavLink></li>
+            <li><NavLink to="/Perfiles" className="dropdown-item">Perfiles</NavLink></li>
           </ul>
           
         </li>
@@ -41,9 +42,9 @@ const NavBar = (footer,nombre) => {
         </li>
 
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <Link to="/Carrito" className="nav-link active" aria-current="page">
             <CartWidget/>
-          </a>
+          </Link>
         </li>
 
 
