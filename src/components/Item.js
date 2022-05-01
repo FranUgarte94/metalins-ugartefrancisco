@@ -1,5 +1,4 @@
-import ItemCount from "./ItemCount"
-import { useState , useEffect } from "react"
+import { useState , } from "react"
 
 const Item = ({producto}) => {
 
@@ -13,7 +12,7 @@ const Item = ({producto}) => {
 }
 
   return (
-    <article className="card">
+    <article className="cardItem">
         <h3>{producto.nombre}</h3>
         <img src="https://via.placeholder.com/300x300" alt=""/>
         <p>$ {producto.precio}</p>
@@ -21,8 +20,8 @@ const Item = ({producto}) => {
         <p>Categorias : {producto.categorias.map(categoria=>{
           return <span>{categoria}</span>
         })} </p>
-        <button key={producto.id} onClick={detallesPrductos} className="botonSuma">Detalles</button>
-        <ItemCount stock={producto.stock} init={1}/>
+        <button key={producto.id} onClick={detallesPrductos} className="botonSuma btn-primary">Ver Detalle</button>
+
 
     </article>
   )
