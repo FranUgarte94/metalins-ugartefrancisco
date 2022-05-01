@@ -1,6 +1,7 @@
 import { useEffect , useState } from "react"
-import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
+import { BeatLoader } from "react-spinners"
+import { toast } from "react-toastify"
 
 export const productosIniciales = [
 
@@ -11,7 +12,7 @@ export const productosIniciales = [
     precio : 6500,
     stock : 200,
     categorias : ["chapas", "aceros"],
-    imagen : "https://www.mismarcas.com/wp-content/uploads/2019/10/camiseta-mismarcas-nike-air-max-1-negra-1.jpg"
+    imagen : "https://via.placeholder.com/300x300"
 
   },
   {
@@ -21,7 +22,7 @@ export const productosIniciales = [
     precio : 8200,
     stock : 200,
     categorias : ["chapas", "aceros"],
-    imagen : "https://www.mismarcas.com/wp-content/uploads/2019/10/camiseta-mismarcas-nike-air-max-1-negra-1.jpg"
+    imagen : "https://via.placeholder.com/300x300"
     
   },
   {
@@ -31,7 +32,7 @@ export const productosIniciales = [
     precio : 10100,
     stock : 200,
     categorias : ["chapas", "aceros"],
-    imagen : "https://www.mismarcas.com/wp-content/uploads/2019/10/camiseta-mismarcas-nike-air-max-1-negra-1.jpg"
+    imagen : "https://via.placeholder.com/300x300"
     
   }
 ]
@@ -39,40 +40,38 @@ export const productosIniciales = [
 const ItemListContainer = ({children,apellido}) => {
 
   const [cargando,setCargando] = useState(true)
-  const [productos,setProductos] = useState([])
+  const [producto,setProducto] = useState([])
 
   useEffect(()=>{
+
+     toast.info("Cargando productos...")
     
     const pedido = new Promise ((res)=>{
       setTimeout(()=>{
       res(productosIniciales)
-      },2000)
+      },3000)
     })
 
     pedido
       .then(()=>{
         console.log("Termino el pedido bien")
         setCargando(false)
-        setProductos(productosIniciales)
+        setProducto(productosIniciales)
+        toast.dismiss()
+        toast.success("Productos Cargados")
       })
   },[])
 
   if(cargando){
     return(
-      <p>Cargando...</p>
+      <BeatLoader/>
     ) 
   }else{
     return(
-    <ItemList productos={productos}/>
+    <ItemList producto={producto}/>
     )
   }
-
-
-
-
-
-
-  }
+}
 
   export default ItemListContainer
 

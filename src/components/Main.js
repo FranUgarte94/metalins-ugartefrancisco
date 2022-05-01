@@ -1,7 +1,6 @@
-import { Route , Routes } from "react-router-dom"
 import acero from "../images/acero.png"
-import ItemListContainer from "./ItemListContainer"
 import ItemDetailContainer from "./ItemDetailContainer"
+import ItemListContainer from "./ItemListContainer"
 
 
 
@@ -15,7 +14,7 @@ const Main = () => {
 
         <h2>El mejor buscador de Insumos Metalurgicos del país.</h2> 
         <h3>¡Busca, cotiza y compra con nosotros!</h3>
-        <img className="imagenMain" src={acero} />
+        <img className="imagenMain" src={acero} alt=""/>
         <ItemListContainer apellido="Ugarte"/>
         <ItemDetailContainer/>
 

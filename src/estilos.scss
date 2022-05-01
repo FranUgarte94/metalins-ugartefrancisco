@@ -12,6 +12,11 @@ html , body , #root {
     
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 #root {
     display: flex;
     flex-direction: column;

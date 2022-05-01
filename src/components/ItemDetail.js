@@ -1,24 +1,20 @@
-import React from 'react'
+
+const ItemDetail = (producto) => {
 
 
-const ItemDetail = (props) => {
+    return (
+        <article>   
+            <h1>Detalle del producto</h1>
 
 
-      return(
-        <article className="">
-        <h3>{props.nombre}</h3>
-        <img  src={props.imagen} alt=""/>
-        <p>$ {props.precio}</p>
-        <p>Stock : {props.stock}</p>
-        <p>Medidas : {props.tamaño}</p>
-    </article>
-      )
-    }
+            <h3>Titulo : {producto.nombre}</h3>
+            <h4>Precio : $ {producto.precio}</h4>
+            <img src={producto.imagen} alt=""/>
+            <p>Stock disponible : {producto.stock}</p>
+            <p>Codigo de producto : {producto.id}</p>
+        </article>
+    )
 
-export default ItemDetail
-
-/*         <p>Categorias : {producto.categorias.map(categoria=>{
-          return <span>{categoria}</span>
-        })} </p>
-
-        */
+  }
+  
+  export default ItemDetail
