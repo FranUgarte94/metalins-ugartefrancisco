@@ -135,56 +135,38 @@ const ItemListContainer = ({children,apellido}) => {
   const [producto,setProducto] = useState([])
   const {nombreCategoria,test} = useParams()
 
-  console.log({nombreCategoria,test})
 
+  console.log({nombreCategoria,test})
 
   useEffect(()=>{
 
-    if(nombreCategoria===undefined){
-      console.log("Pido todos los productos")
-
-      toast.info("Cargando productos...")
-    
+    console.log("Pido todos los productos")
+    toast.info("Cargando productos...")
     const pedido = new Promise ((res)=>{
       setTimeout(()=>{
       res(productosIniciales)
       },2000)
     })
-
-    pedido
-      .then(()=>{
-        setCargando(false)
-        setProducto(productosIniciales)
-        toast.dismiss()
-        toast.success("Productos Cargados")
-      })
-    } 
+    .then(()=>{
+  if(nombreCategoria===undefined){
+    setCargando(false)
+    setProducto(productosIniciales)
+    toast.dismiss()
+    toast.success("Productos Cargados")
     
-    else {
+  } else {
       console.log("Pido los productos de la categoria :",nombreCategoria)
 
       toast.info("Cargando productos...")
 
-      const productosFiltrados = productosIniciales.filter(categoria=>categoria.categorias === nombreCategoria)
+      setProducto(productosIniciales.filter(categoria=>categoria.categorias === nombreCategoria))
+      setCargando(false)
+      toast.dismiss()
+      toast.success("Productos Cargados")
 
-      console.log(productosFiltrados)
+        }
 
-
-      const pedidoPorCategorias = new Promise ((res)=>{
-        setTimeout(()=>{
-        res(productosFiltrados)
-        },2000)
-      })
-  
-      pedidoPorCategorias
-        .then(()=>{
-          setCargando(false)
-          setProducto(productosFiltrados)
-          toast.dismiss()
-          toast.success("Productos Cargados")
-        })
-
-    }
+    })
 
     
 
