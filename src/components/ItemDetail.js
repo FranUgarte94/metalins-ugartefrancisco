@@ -4,11 +4,6 @@ import ItemCount from "./ItemCount"
 
 const ItemDetail = (producto) => {
 
-        const handleClick = (a) => {
-    
-            console.log(a)
-    
-        }
 
     return (
         <article className="card cardDetail"> 

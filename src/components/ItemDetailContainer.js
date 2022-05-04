@@ -3,23 +3,44 @@ import ItemDetail from "./ItemDetail"
 import { productosIniciales } from "./ItemListContainer"
 import { BeatLoader } from "react-spinners"
 import { useParams } from "react-router-dom"
+import { toast } from "react-toastify"
 
 const ItemDetailContainer = () => {
 
   const [cargando,setCargando] = useState(true)
   const [producto,setProducto] = useState({})
-  const {id} = useParams()
+  const {id,test} = useParams()
+
+  console.log({id,test})
 
   useEffect(()=>{
-    //console.log("Pido el producto con id: ",id)
-    //console.log("Tengo los productos iniciales: ",productosIniciales)
-    const resultado = productosIniciales.filter((producto)=>{
-      return producto.id == id
-    })[0]
-    setProducto(resultado)
-    setCargando(false)
-    //aca hago el pedido (la promesa con el timeout de 2 seg)
-  })
+
+    console.log("Pido detalle de un solo producto :",id)
+
+    toast.info("Cargando detalle...")
+
+     const detalleProducto = productosIniciales.filter((item)=>{return item.id === id})
+
+    console.log(detalleProducto)
+
+
+    const pedidoDeDetalle = new Promise ((res)=>{
+      setTimeout(()=>{
+      res(detalleProducto)
+      },2000)
+    })
+
+    pedidoDeDetalle
+      .then(()=>{
+        setCargando(false)
+        setProducto(detalleProducto)
+        toast.dismiss()
+        toast.success("Detalle de Producto Cargado")
+      })
+
+
+
+  },[])
 
   if(cargando){
     return (
@@ -28,7 +49,7 @@ const ItemDetailContainer = () => {
   }else{
     return (
       <>
-        <ItemDetail/>
+        <ItemDetail key={producto.id} producto={producto}/>
       </>
     )
   }

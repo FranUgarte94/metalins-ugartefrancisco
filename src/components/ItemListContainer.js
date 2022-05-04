@@ -148,7 +148,7 @@ const ItemListContainer = ({children,apellido}) => {
     const pedido = new Promise ((res)=>{
       setTimeout(()=>{
       res(productosIniciales)
-      },500)
+      },2000)
     })
 
     pedido
@@ -173,7 +173,7 @@ const ItemListContainer = ({children,apellido}) => {
       const pedidoPorCategorias = new Promise ((res)=>{
         setTimeout(()=>{
         res(productosFiltrados)
-        },500)
+        },2000)
       })
   
       pedidoPorCategorias
