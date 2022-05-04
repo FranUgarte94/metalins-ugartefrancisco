@@ -2,7 +2,7 @@ import {useState} from 'react'
 import ItemCount from "./ItemCount"
 
 
-const ItemDetail = (producto) => {
+const ItemDetail = ({producto}) => {
 
 
     return (
