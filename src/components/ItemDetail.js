@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import ItemCount from "./ItemCount"
+import{Link , NavLink} from 'react-router-dom'
 
 
 const ItemDetail = ({producto}) => {
@@ -16,6 +17,9 @@ const ItemDetail = ({producto}) => {
             <p>Codigo de producto : {producto.id}</p>
             <p>Categoria : {producto.categorias}</p>
             <ItemCount stock={producto.stock} init={1}/>
+            <button>
+            <Link to="/" className="botonSuma btn-primary">Terminar Compra</Link>
+            </button>
         </article>
     )
 }
