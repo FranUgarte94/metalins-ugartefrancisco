@@ -5,19 +5,16 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css"
 
 const App = () => {
     return (
-        <>
-            <BrowserRouter>
-                <Header/>
-                <Main/>
-                <Footer/>
-                <ToastContainer/>
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <Header/>
+            <Main/>
+            <Footer/>
+            <ToastContainer/>
+        </BrowserRouter>
     )
 }
 

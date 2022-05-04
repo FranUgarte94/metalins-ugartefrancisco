@@ -2,6 +2,8 @@ import { useEffect , useState } from "react"
 import ItemList from "./ItemList"
 import { BeatLoader } from "react-spinners"
 import { toast } from "react-toastify"
+import { useParams } from "react-router-dom"
+
 
 export const productosIniciales = [
 
@@ -11,7 +13,7 @@ export const productosIniciales = [
     tamaño : "1220 x 2440",
     precio : 6500,
     stock : 200,
-    categorias : ["chapas", "aceros"],
+    categorias : "Chapas",
     imagen : "https://via.placeholder.com/300x300"
 
   },
@@ -21,7 +23,7 @@ export const productosIniciales = [
     tamaño : "1220 x 2440",
     precio : 8200,
     stock : 200,
-    categorias : ["chapas", "aceros"],
+    categorias : "Chapas",
     imagen : "https://via.placeholder.com/300x300"
     
   },
@@ -31,36 +33,163 @@ export const productosIniciales = [
     tamaño : "1220 x 2440",
     precio : 10100,
     stock : 200,
-    categorias : ["chapas", "aceros"],
+    categorias : "Chapas",
     imagen : "https://via.placeholder.com/300x300"
     
-  }
+  },
+  {
+    id : 4,
+    nombre : "Perfil UPN",
+    tamaño : "6 m",
+    precio : 6500,
+    stock : 200,
+    categorias : "Perfiles",
+    imagen : "https://via.placeholder.com/300x300"
+
+  },
+  {
+    id : 5,
+    nombre : "Perfil IPN",
+    tamaño : "6 m",
+    precio : 8200,
+    stock : 200,
+    categorias : "Perfiles",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
+  {
+    id : 6,
+    nombre : "Perfil Angulo",
+    tamaño : "6 m",
+    precio : 10100,
+    stock : 200,
+    categorias : "Perfiles",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
+  {
+    id : 7,
+    nombre : "Caño redondo",
+    tamaño : "6 m",
+    precio : 9999,
+    stock : 200,
+    categorias : "Caños",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
+  {
+    id : 8,
+    nombre : "Caño cuadrado",
+    tamaño : "6 m",
+    precio : 8888,
+    stock : 200,
+    categorias : "Caños",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
+  {
+    id : 9,
+    nombre : "Caño rectangular",
+    tamaño : "6 m",
+    precio : 7888,
+    stock : 200,
+    categorias : "Caños",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
+  {
+    id : 10,
+    nombre : "Herraje A",
+    tamaño : "100x100",
+    precio : 9999,
+    stock : 200,
+    categorias : "Herrajes",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
+  {
+    id : 11,
+    nombre : "Herraje B",
+    tamaño : "200x200",
+    precio : 8988,
+    stock : 200,
+    categorias : "Herrajes",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
+  {
+    id : 12,
+    nombre : "Herraje C",
+    tamaño : "300x300",
+    precio : 7852,
+    stock : 200,
+    categorias : "Herrajes",
+    imagen : "https://via.placeholder.com/300x300"
+    
+  },
 ]
 
 const ItemListContainer = ({children,apellido}) => {
 
   const [cargando,setCargando] = useState(true)
   const [producto,setProducto] = useState([])
+  const {nombreCategoria,test} = useParams()
+
+  console.log({nombreCategoria,test})
+
 
   useEffect(()=>{
 
-     toast.info("Cargando productos...")
+    if(nombreCategoria===undefined){
+      console.log("Pido todos los productos")
+
+      toast.info("Cargando productos...")
     
     const pedido = new Promise ((res)=>{
       setTimeout(()=>{
       res(productosIniciales)
-      },3000)
+      },500)
     })
 
     pedido
       .then(()=>{
-        console.log("Termino el pedido bien")
         setCargando(false)
         setProducto(productosIniciales)
         toast.dismiss()
         toast.success("Productos Cargados")
       })
-  },[])
+    } 
+    
+    else {
+      console.log("Pido los productos de la categoria :",nombreCategoria)
+
+      toast.info("Cargando productos...")
+
+      const productosFiltrados = productosIniciales.filter(categoria=>categoria.categorias === nombreCategoria)
+
+      console.log(productosFiltrados)
+
+
+      const pedidoPorCategorias = new Promise ((res)=>{
+        setTimeout(()=>{
+        res(productosFiltrados)
+        },500)
+      })
+  
+      pedidoPorCategorias
+        .then(()=>{
+          setCargando(false)
+          setProducto(productosFiltrados)
+          toast.dismiss()
+          toast.success("Productos Cargados")
+        })
+
+    }
+
+    
+
+
+  },[nombreCategoria])
 
   if(cargando){
     return(

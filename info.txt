@@ -123,3 +123,59 @@ API REST :
 
 
     SPA : SINGLE PAGE APLICATION
+
+
+
+
+    const arr = [1,2,3,4,5]
+
+    arr.filter(()=>{})
+
+    arr.filter((elemento)=>{
+        console.log(elemento)
+    })
+
+        arr.filter((elemento)=>{
+        console.log(elemento > 2)
+    })
+
+    arr.filter((elemento)=>{
+        return elemento > 2
+    })
+
+
+
+const ItemDetailContainer = () => {
+
+  const [cargando,setCargando] = useState(true)
+  const [producto,setProducto] = useState({})
+  const {id} = useParams()
+
+  useEffect(()=>{
+
+      console.log("Pido el producto con id: ", id)
+      console.log("Tengo los productos iniciales:", productos iniciales)
+      const resultado = productosIniciales.filter((producto)=>{
+          return producto.id == id
+           })
+
+
+ },[])
+
+ if(cargando){
+   return(
+     <BeatLoader/>
+   ) 
+ }else{
+   return(
+   <ItemDetail producto={producto} 
+    key={producto[0].id}
+    imagen={producto[0].imagen}
+    nombre={producto[0].nombre}
+    precio={producto[0].precio}
+    stock={producto[0].stock}
+   
+   />
+   )
+ }
+}
