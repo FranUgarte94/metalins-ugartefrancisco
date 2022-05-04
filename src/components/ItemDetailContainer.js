@@ -19,9 +19,11 @@ const ItemDetailContainer = () => {
 
     toast.info("Cargando detalle...")
 
-     const detalleProducto = productosIniciales.filter((item)=>{return item.id === id})
+     const detalleProducto = productosIniciales.filter((producto)=>{return producto.id === id})
 
     console.log(detalleProducto)
+
+    console.log(producto.id)
 
 
     const pedidoDeDetalle = new Promise ((res)=>{
@@ -40,7 +42,7 @@ const ItemDetailContainer = () => {
 
 
 
-  },[])
+  },[id, producto.id])
 
   if(cargando){
     return (
