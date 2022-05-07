@@ -5,9 +5,6 @@ const ItemCount = ({init,stock,onAdd}) => {
 const [contador,setContador] = useState(init)
 const [confirmado,setConfirmado] = useState(false)
 
-//useEffect(()=>{
-//  console.log("Pido el detalle de un Producto")
-//},[confirmado])
 
 const sumar = () => {
 
@@ -24,7 +21,6 @@ const restar = () => {
 
 const confirmar = () => {
     console.log(contador)
-    //onAdd(contador)
     setConfirmado(true)
 }
 
@@ -36,20 +32,24 @@ const cerrarConfirmado = () => {
 if(!confirmado) {
   return (
     <div>
-        <p className="cantidad">Unidades a comprar : {contador}</p>
+      <div className="">
         <button onClick={sumar} className="material-icons botonSuma btn-primary">add</button>
-        <button onClick={confirmar} className="botonSuma btn-primary">Confirmar</button>
+        <p className="cantidad">Unidades a comprar : {contador}</p>
         <button onClick={restar} className="material-icons botonSuma btn-primary">remove</button>
+        </div>
+        <button onClick={confirmar} className="botonSuma btn-primary">Confirmar</button>
 
     </div>
   )
 } else {
   return (
     <div>
-        <p className="cantidad">Unidades a comprar : {contador}</p>
+            <div className="">
         <button onClick={sumar} className="material-icons botonSuma btn-primary">add</button>
-        <button onClick={confirmar} className="botonSuma btn-primary">Confirmar</button>
+        <p className="cantidad">Unidades a comprar : {contador}</p>
         <button onClick={restar} className="material-icons botonSuma btn-primary">remove</button>
+        </div>
+        <button onClick={confirmar} className="botonSuma btn-primary">Confirmar</button>
         <h6 className="modalcss">Se confirmaron {contador} unidades!
         <button onClick={cerrarConfirmado}>Cerrar</button></h6>
     </div>

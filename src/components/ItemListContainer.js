@@ -136,11 +136,11 @@ const ItemListContainer = ({children,apellido}) => {
   const {nombreCategoria,test} = useParams()
 
 
-  console.log({nombreCategoria,test})
+  //console.log({nombreCategoria,test})
 
   useEffect(()=>{
 
-    console.log("Pido todos los productos")
+    //console.log("Pido todos los productos")
     toast.info("Cargando productos...")
     const pedido = new Promise ((res)=>{
       setTimeout(()=>{
@@ -155,7 +155,7 @@ const ItemListContainer = ({children,apellido}) => {
     toast.success("Productos Cargados")
     
   } else {
-      console.log("Pido los productos de la categoria :",nombreCategoria)
+      //console.log("Pido los productos de la categoria :",nombreCategoria)
 
       toast.info("Cargando productos...")
 
@@ -185,104 +185,3 @@ const ItemListContainer = ({children,apellido}) => {
 }
 
   export default ItemListContainer
-
-  /*
-  const [productos, setProductos] = useState([])
-
-  useEffect(()=> {
-
-    const promesa = new Promise((res,rej)=>{
-      res(productosDeBaseDeDatos)
-
-  })
-  
-  .then((contenido)=>{
-    console.log("Salio bien")
-  })
-  .catch((error)=>{
-    console.log("Salio mal")
-  })
-  
-  setTimeout(()=>{
-       //console.log("Recibo productos!")
-       //console.log(productosDeBaseDeDatos)
-       setProductos(productosDeBaseDeDatos)
- },2000)  
-  //console.log("Pido productos...")
-
-
-  },[])
-
-*/
-
-
-
-
-    /*
-
-          <div>
-              <ul>
-                  {productos.map((producto)=>{
-                    //console.log(producto,indice)
-                    return <li key={producto.id}>{producto.nombre}</li>
-
-                  })}
-              </ul>
-          </div>
-
-          */
-
-          
-
-  /*
-      return (
-
-      
-      <>
-
-
-
-            <h2>¡Hola {apellido}!</h2>
-      <h2 className="main">Productos</h2> 
-
-
-
-  
-  <div className="card main">
-      
-        <div className="card-body">
-          <h5 className="card-title">Chapas</h5>
-          <p className="card-text">Todo tipo de chapas, en variedad de espesores y terminaciones</p>
-
-          <ItemCount stock={10} init={1} onAdd={onAdd}/>
-
-
-
-
-
-      </div>
-  </div>
-  
-  <div className="card main">
-      
-      <div className="card-body">
-        <h5 className="card-title">Caños</h5>
-        <p className="card-text">Caños redondos, cuadrados y rectangulares.</p>
-        
-  </div>
-  </div>
-  
-  <div className="card main">
-      
-      <div className="card-body">
-        <h5 className="card-title">Perfiles</h5>
-        <p className="card-text">UPN, IPN, perfil C, etc</p>
-        
-  </div>
-  </div>
-      
-      
-      
-      </>
-    )
-    */

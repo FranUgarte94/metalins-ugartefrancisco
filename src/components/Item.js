@@ -1,16 +1,7 @@
-import { useState , } from "react"
 import { Link } from "react-router-dom"
 
 const Item = ({producto}) => {
 
-  const [detalles,setDetalles] = useState(false)
-
-  const detallesPrductos = () => {
-
-    console.log(producto.id)
-
-    setDetalles(true)
-}
 
   return (
     <article className="cardItem">

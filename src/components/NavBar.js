@@ -3,8 +3,6 @@ import { Link , NavLink } from 'react-router-dom';
 
 const NavBar = (footer,nombreUsuario) => {
 
-  //console.log(props.nombre);
-  //console.log(props.footer);
 
   if(footer){
     return (

@@ -6,42 +6,22 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"
+import MiCustomProvider from "./components/miContexto";
+
+
 
 const App = () => {
     return (
-        <BrowserRouter>
+    <BrowserRouter>
+        <MiCustomProvider>
             <Header/>
             <Main/>
             <Footer/>
             <ToastContainer/>
-        </BrowserRouter>
+        </MiCustomProvider>
+    </BrowserRouter>
     )
 }
 
 export default App
 
-
-
-/*
-const pedido = fetch("https://fakestoreapi.com/products")
-//console.log(pedido)
-
-//Callback Hell
-pedido
-    .then((respuestaPedido)=>{
-        //console.log(respuesta)
-        // respuesta.text()
-        //respuesta.blob()
-        //respuesta.arrayBuffer()
-        const productos = respuestaPedido.json()
-        //console.log(productos)
-        return productos
-    })
-    .then((respuestaConFormato)=>{
-        console.log(respuestaConFormato)
-    })
-    .catch((err)=> {
-        console.log(err)
-    })
-
-*/
