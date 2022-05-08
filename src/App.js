@@ -6,7 +6,6 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import MiCustomProvider from "./components/miContexto";
 import { CustomProvider } from "./components/CartContext";
 
 const App = () => {
