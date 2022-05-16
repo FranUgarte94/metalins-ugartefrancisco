@@ -3,6 +3,8 @@ import ItemList from "./ItemList";
 import { BeatLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+import { db } from "./firebase";
+import { collection , getDoc , doc , getDocs , addDoc , query } from "firebase/firestore"; 
 
 export const productosIniciales = [
   {
@@ -13,6 +15,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Chapas",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 2,
@@ -22,6 +25,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Chapas",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 3,
@@ -31,6 +35,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Chapas",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 4,
@@ -40,6 +45,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Perfiles",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 5,
@@ -49,6 +55,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Perfiles",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 6,
@@ -58,6 +65,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Perfiles",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 7,
@@ -67,6 +75,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Caños",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 8,
@@ -76,6 +85,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Caños",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 9,
@@ -85,6 +95,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Caños",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 10,
@@ -94,6 +105,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Herrajes",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 11,
@@ -103,6 +115,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Herrajes",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 12,
@@ -112,6 +125,7 @@ export const productosIniciales = [
     stock: 200,
     categorias: "Herrajes",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
 ];
 
@@ -123,6 +137,38 @@ const ItemListContainer = ({ children, apellido }) => {
   //console.log({nombreCategoria,test})
 
   useEffect(() => {
+
+    /*
+    const productosCollection = collection(db,"productos")
+    const consulta = getDocs(productosCollection)
+    //console.log(consulta)
+
+    consulta
+      .then((resultado)=>{
+        //console.log(resultado.docs)
+
+        const productos = resultado.docs.map(doc=>{
+
+          const productoConId = doc.data()
+          productoConId.id = doc.id
+
+          return productoConId
+        })
+
+        setProducto(productos)
+        setCargando(false)
+
+        //console.log(productos)
+      })
+      .catch((error)=>{
+
+      })
+      .finally(()=>{
+
+      })
+*/
+
+
     //console.log("Pido todos los productos")
     toast.info("Cargando productos...");
     const pedido = new Promise((res) => {
@@ -152,11 +198,22 @@ const ItemListContainer = ({ children, apellido }) => {
     });
   }, [nombreCategoria]);
 
-  if (cargando) {
-    return <BeatLoader />;
-  } else {
-    return <ItemList producto={producto} />;
-  }
+  return (
+    <>
+      {cargando ? <BeatLoader /> : <ItemList producto={producto} />}
+    </>
+  )
+
+
 };
 
 export default ItemListContainer;
+
+
+/*
+if (cargando) {
+  return <BeatLoader />;
+} else {
+  return <ItemList producto={producto} />;
+}
+*/

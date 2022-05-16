@@ -1,4 +1,4 @@
-import { createContext } from "react";
+/*import { createContext } from "react";
 import { useState } from "react";
 
 export const cartContext = createContext();
@@ -49,3 +49,6 @@ export const CustomProvider = ({ defaultValue = [], children }) => {
 };
 
 export default cartContext;
+
+
+*/

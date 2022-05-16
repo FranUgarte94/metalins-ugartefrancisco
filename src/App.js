@@ -7,16 +7,19 @@ import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CustomProvider } from "./components/CartContext";
+import MiCustomProvider from "./components/miContexto";
+
+
 
 const App = () => {
   return (
     <BrowserRouter>
-      <CustomProvider>
+      <MiCustomProvider>
         <Header />
         <Main />
         <Footer />
         <ToastContainer />
-      </CustomProvider>
+      </MiCustomProvider>
     </BrowserRouter>
   );
 };

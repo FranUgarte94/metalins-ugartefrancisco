@@ -9,10 +9,10 @@ const Header = () => {
           <h1 className="header__titulo">Metal-Ins Ecommerce</h1>
         </Link>
 
-        <Link to="/Carrito">
+        <Link to="/cart">
           <span className="material-icons">shopping_cart</span>
         </Link>
-        <NavBar nombreUsuario="Francisco" footer={false} />
+        <NavBar nombre="Francisco" footer={false} />
       </header>
     </>
   );

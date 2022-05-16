@@ -2,8 +2,9 @@ import acero from "../images/acero.png";
 import ItemDetailContainer from "./ItemDetailContainer";
 import ItemListContainer from "./ItemListContainer";
 import { Routes, Route } from "react-router-dom";
-import Carrito from "./Carrito";
 import SobreNosotros from "./SobreNosotros";
+import Profile from "./Profile";
+import Cart from "./Cart";
 
 const Main = () => {
   return (
@@ -20,8 +21,9 @@ const Main = () => {
           element={<ItemListContainer />}
         />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
-        <Route path="/carrito" element={<Carrito />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/sobrenosotros" element={<SobreNosotros />} />
+        <Route path="/profile" element={<Profile/>} />
       </Routes>
     </main>
   );

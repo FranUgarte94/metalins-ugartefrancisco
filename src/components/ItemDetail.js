@@ -1,21 +1,35 @@
-import ItemCount from "./ItemCount";
-import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
-import { cartContext } from "./CartContext";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import React from 'react'
+import{Link , NavLink} from 'react-router-dom'
+import ItemCount from './ItemCount'
+import {useState, useContext} from 'react'
+import { contexto } from './miContexto';
 
 const ItemDetail = ({ producto }) => {
-  const [nombre, setNombre] = useState("");
-  const [cartItems, setCartItems] = useState(0);
-  const { addItem } = useContext(cartContext);
+
+  const {agregarProducto}=useContext(contexto)
   const [verContador, setVerContador] = useState(false)
 
-  const onAdd = (quantity) => {
-    setCartItems(quantity);
-    addItem(producto, quantity);
-    //console.log(e.target)
-    console.log("Click del padre");
-  };
 
+  const onClick=(contador,item)=>{
+    toast(` Se han cargado ${contador} productos` , {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      },
+      
+      agregarProducto(contador,producto)
+      
+      );
+    
+   }
+
+/*
   const handleChange = (e) => {
     if (e.target.value !== "") {
       //nombre = e.target.name
@@ -43,6 +57,7 @@ const ItemDetail = ({ producto }) => {
     console.log("Submit");
     console.log(nombre);
   };
+*/ 
 
   const funcionVerContador = () => {
       setVerContador(true)
@@ -67,9 +82,9 @@ const ItemDetail = ({ producto }) => {
       <p>Stock disponible : {producto.stock}</p>
       <p>Codigo de producto : {producto.id}</p>
       <p>Categoria : {producto.categorias}</p>
-      <ItemCount stock={producto.stock} init={1} onAdd={onAdd} onCount={funcionVerContador}/>
-      <Link to="/carrito" >
-        <button className="botonSuma btn-primary">
+      <ItemCount stock={producto.stock} init={1} onAdd={onClick} onCount={funcionVerContador} productos={producto}/>
+      <Link to="/cart" >
+        <button className="botonSuma btn-primary" onAdd={onClick} >
           Terminar Compra
           </button>
         </Link>
@@ -93,8 +108,8 @@ const ItemDetail = ({ producto }) => {
       <p>Codigo de producto : {producto.id}</p>
       <p>Categoria : {producto.categorias}</p>
       
-        <Link to="/carrito" >
-        <button className="botonSuma btn-primary">
+        <Link to="/cart" >
+        <button className="botonSuma btn-primary" onAdd={onClick}>
           Terminar Compra
           </button>
         </Link>

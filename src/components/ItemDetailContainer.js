@@ -3,6 +3,7 @@ import ItemDetail from "./ItemDetail";
 import { BeatLoader } from "react-spinners";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { db } from "./firebase";
 
 const productosIniciales = [
   {
@@ -13,6 +14,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Chapas",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 2,
@@ -22,6 +24,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Chapas",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Chapas",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 4,
@@ -40,6 +44,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Perfiles",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 5,
@@ -49,6 +54,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Perfiles",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 6,
@@ -58,6 +64,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Perfiles",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 7,
@@ -67,6 +74,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Caños",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 8,
@@ -76,6 +84,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Caños",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 9,
@@ -85,6 +94,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Caños",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 10,
@@ -94,6 +104,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Herrajes",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 11,
@@ -103,6 +114,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Herrajes",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
   {
     id: 12,
@@ -112,6 +124,7 @@ const productosIniciales = [
     stock: 200,
     categorias: "Herrajes",
     imagen: "https://via.placeholder.com/300x300",
+    cantPorProducto:0
   },
 ];
 
@@ -147,6 +160,18 @@ const ItemDetailContainer = () => {
     });
   });
 
+  return (
+    <>  
+      {cargando ? <BeatLoader /> : <ItemDetail key={producto.id} producto={producto} />}
+    </>
+  )
+
+};
+
+export default ItemDetailContainer;
+
+
+/*
   if (cargando) {
     return <BeatLoader />;
   } else {
@@ -156,6 +181,4 @@ const ItemDetailContainer = () => {
       </>
     );
   }
-};
-
-export default ItemDetailContainer;
+  */
