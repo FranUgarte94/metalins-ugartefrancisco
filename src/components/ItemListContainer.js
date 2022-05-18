@@ -138,7 +138,7 @@ const ItemListContainer = ({ children, apellido }) => {
 
   useEffect(() => {
 
-    /*
+
     const productosCollection = collection(db,"productos")
     const consulta = getDocs(productosCollection)
     //console.log(consulta)
@@ -166,8 +166,12 @@ const ItemListContainer = ({ children, apellido }) => {
       .finally(()=>{
 
       })
-*/
 
+
+
+
+
+/*
 
     //console.log("Pido todos los productos")
     toast.info("Cargando productos...");
@@ -196,6 +200,8 @@ const ItemListContainer = ({ children, apellido }) => {
         toast.success("Productos Cargados");
       }
     });
+
+*/
   }, [nombreCategoria]);
 
   return (
