@@ -144,7 +144,7 @@ const ItemDetailContainer = () => {
     // toast.info("Cargando detalle...");
 
     const productosCollection = collection(db,"productos")
-    const consulta = getDocs(productosCollection)
+    const consulta = getDoc(productosCollection)
     //console.log(consulta)
 
 
